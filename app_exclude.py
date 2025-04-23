@@ -1,15 +1,15 @@
 import pandas as pd
 import re
 from io import BytesIO
-from google.colab import files
+import streamlit as st
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 from openpyxl.utils import get_column_letter
-import streamlit as st
 
-# Load the product and rules data from uploaded Excel file
+# Streamlit file upload
 uploaded = st.file_uploader("Upload Product Detail Excel File", type="xlsx")
 if uploaded:
+    # Load the product and rules data from uploaded Excel file
     product_df = pd.read_excel(uploaded, sheet_name="Product detail")
     rules_df = pd.read_excel(uploaded, sheet_name="Rules")
 
